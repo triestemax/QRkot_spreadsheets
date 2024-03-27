@@ -49,7 +49,7 @@ async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
 
 
 async def set_user_permissions(
-        spreadsheetid: str,
+        spreadsheet_id: str,  # из теории было скопировано, там spreedsheetid ))
         wrapper_services: Aiogoogle
 ) -> None:
     """Предоставляем права доступа."""
@@ -59,7 +59,7 @@ async def set_user_permissions(
     service = await wrapper_services.discover('drive', 'v3')
     await wrapper_services.as_service_account(
         service.permissions.create(
-            fileId=spreadsheetid,
+            fileId=spreadsheet_id,
             json=permissions_body,
             fields="id"
         ))
